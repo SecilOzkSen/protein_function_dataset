@@ -1,0 +1,28 @@
+# Dataset-related
+*.fasta
+*.gz
+*.tar.gz
+*.pkl
+*.tsv
+*.json
+
+# Intermediate files
+data/raw/
+data/processed/
+data/analysis/
+__pycache__/
+.ipynb_checkpoints/
+*.log
+
+# Virtual environments
+env/
+.venv/
+
+#pycharm
+.idea/
+
+# Jupyter notebooks (optional)
+*.ipynb
+
+# System files
+.DS_Store
