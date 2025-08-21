@@ -99,6 +99,7 @@ python go_basic_obo_parser.py
 10. Define zero-shot GO terms (ontology – training set difference):
 ```bash
 python define_zero_shot_terms.py
+```
 ---
 
 ## Final Output Files (for downstream model training)
