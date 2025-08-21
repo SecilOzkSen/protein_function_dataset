@@ -5,6 +5,11 @@ from config import (GO_BASIC,
                     GO_BASIC_PKL,
                     GO_BASIC_JSON)
 
+ALLOWED_REL = {
+    "is_a", "part_of", "regulates", "positively_regulates", "negatively_regulates",
+    "occurs_in", "located_in", "capable_of", "capable_of_part_of"
+}
+
 def go_basic_obo_parser():
     go_terms = {}
     with open(GO_BASIC, "r") as f:
@@ -24,7 +29,8 @@ def go_basic_obo_parser():
                         "name": current_term.get("name", ""),
                         "namespace": current_term.get("namespace", ""),
                         "definition": current_term.get("def", ""),
-                        "parents": current_term.get("is_a", [])
+                        "is_a": current_term.get("is_a", []),
+                        "part_of": current_term.get("part_of", [])
                     }
                     inside_term = False
                     continue
@@ -45,6 +51,9 @@ def go_basic_obo_parser():
                 elif line.startswith("is_a"):
                     parent_id = line.split("is_a:")[1].split("!")[0].strip()
                     current_term.setdefault("is_a", []).append(parent_id)
+                elif line.startswith("relationship: part_of"):
+                    parent_id = line.split("relationship: part_of")[1].split("!")[0].strip()
+                    current_term.setdefault("part_of", []).append(parent_id)
 
     return go_terms
 

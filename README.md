@@ -96,12 +96,9 @@ python parse_fasta.py
 ```bash
 python go_basic_obo_parser.py
 ```
-
-10. Analyze GO term frequency and separate rare/common terms:
+10. Define zero-shot GO terms (ontology – training set difference):
 ```bash
-python analyze_go_term_frequency.py
-```
-
+python define_zero_shot_terms.py
 ---
 
 ## Final Output Files (for downstream model training)
@@ -109,11 +106,11 @@ python analyze_go_term_frequency.py
 | File | Description |
 |------|-------------|
 | `sequences_full.pkl` | Protein ID → amino acid sequence (GOA + CAFA) |
-| `goa_plus_cafa.pkl` | Protein ID → list of GO terms |
-| `go_terms.pkl` | GO ID → name, definition, namespace, and parent GO terms |
+| `goa_plus_cafa.pkl` | Protein ID → list of GO terms (GOA + CAFA) |
+| `goa_parsed.pkl` | Protein ID → list of GO terms (GOA) |
+| `go_basic_obo_terms_v2.pkl` | GO ID → name, definition, namespace, and parent GO terms |
 | `go_term_frequency.pkl` | GO ID → protein count |
-| `rare_go_terms.pkl` | GO terms with <20 associated proteins |
-| `common_go_terms.pkl` | GO terms with ≥100 associated proteins |
+| `go_zero_shot.pkl` | Zero Shot GO Terms (to be excluded from training set) |
 
 ---
 
@@ -123,5 +120,6 @@ python analyze_go_term_frequency.py
 - CAFA test proteins are excluded from training.
 - TrEMBL full file must be manually downloaded and filtered.
 - Scripts are Python 3.5+ compatible.
+- Zero-shot terms are defined externally: any GO term found in the ontology but absent from the training annotations (GOA + optional CAFA). Few-shot/common will be derived downstream in the main project.
 
 ---

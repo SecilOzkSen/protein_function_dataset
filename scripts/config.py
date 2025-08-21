@@ -28,8 +28,10 @@ CAFA_PARSED_PKL = PROCESSED_DATA_PATH / "cafa_filtered.pkl"
 FULL_DATASET_PKL = PROCESSED_DATA_PATH / "goa_plus_cafa.pkl"
 MISSING_FROM_SWISSPROT = PROCESSED_DATA_PATH / "missing_from_swissprot.txt"
 # Ontology
-GO_BASIC_JSON = PROCESSED_DATA_PATH / "go_basic_obo_terms.json"
-GO_BASIC_PKL = PROCESSED_DATA_PATH / "go_basic_obo_terms.pkl"
+GO_BASIC_JSON = PROCESSED_DATA_PATH / "go_basic_obo_terms_v2.json"
+GO_BASIC_PKL = PROCESSED_DATA_PATH / "go_basic_obo_terms_v2.pkl"
+GO_ZERO_SHOT_PKL = PROCESSED_DATA_PATH / "go_zero_shot.pkl"
+GO_ZERO_SHOT_TSV = PROCESSED_DATA_PATH / "go_zero_shot.tsv"
 
 
 # Processed Sequences
@@ -46,7 +48,6 @@ GO_TERM_COUNTS_PKL = ANALYSIS_DATA_PATH / "go_term_frequency.pkl"
 RARE_GO_TERMS_PKL = ANALYSIS_DATA_PATH / "rare_go_terms.pkl"
 MIDFREQ_GO_TERMS_PKL = ANALYSIS_DATA_PATH / "midfreq_go_terms.pkl"
 COMMON_GO_TERMS_PKL = ANALYSIS_DATA_PATH / "common_go_terms.pkl"
-
 
 # === Filters & Settings ===
 VALID_EVIDENCE_CODES = {"EXP", "IDA", "IPI", "IMP", "IGI", "IEP"}  # strong evidence
